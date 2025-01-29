@@ -3,6 +3,7 @@
 @import "function";
 
 /*  Hero Section */
+/* Hero Section */
 .hero {
   text-align: center;
   padding: $xl-6 0;
@@ -35,9 +36,11 @@
   .sub-heading {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: $xl-1;
     
     .titleSm {
-      margin: 0 $xl-1;
+      margin: 0;
     }
     
     span {
@@ -50,6 +53,7 @@
 
 .hero-sec {
   position: relative;
+  text-align: center;
   
   &::before {
     content: "";
@@ -62,8 +66,46 @@
     background-color: $dark;
     filter: blur(20px);
   }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      
+      .green {
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        text-align: center;
+      }
+    }
+  }
 }
 
+@media screen and (max-width: 768px) {
+  .hero-sec {
+    .hero-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-sec {
+    .hero-content {
+      grid-template-columns: 1fr;
+    }
+  }
+}
 // expertise
 .expertise {
   .card-img {
@@ -340,8 +382,6 @@
     }
   }
 }
-
-//banner
 .banner {
   margin-top: $xll-3;
   
@@ -350,10 +390,170 @@
     padding: $xll;
     background: rgb(192, 90, 255);
     background: $gradient;
-    @include flex(center, space-between, none);
+    position: relative;
+    overflow: hidden;
+
+    .banner-content {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .banner-action {
+      text-align: center;
+    }
+  }
+
+  .callback-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($dark, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .callback-form {
+    background: linear-gradient(145deg, rgba(23, 30, 32, 0.95), rgba(23, 30, 32, 0.8));
+    padding: 2rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($white, 0.1);
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: rgba($white, 0.5);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    h2 {
+      color: $white;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: rgba($white, 0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .error-message {
+      background: rgba(#ff4444, 0.1);
+      color: #ff4444;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(#ff4444, 0.2);
+    }
+
+    .success-message {
+      text-align: center;
+      padding: 2rem;
+
+      h3 {
+        color: $green;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: rgba($white, 0.8);
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: rgba($white, 0.9);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: rgba($white, 0.05);
+        border: 1px solid rgba($white, 0.1);
+        border-radius: 10px;
+        color: $white;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $green;
+          background: rgba($green, 0.05);
+        }
+
+        &::placeholder {
+          color: rgba($white, 0.3);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 1rem;
+      background: $green;
+      color: $dark;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba($green, 0.3);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+    }
   }
 }
 
+@media screen and (max-width: 768px) {
+  .banner {
+    margin-top: 2rem;
+
+    .container {
+      padding: 2rem;
+      border-radius: 30px 0 30px 0;
+    }
+
+    .callback-form {
+      padding: 1.5rem;
+    }
+  }
+}
 //testimonial
 .testimonial {
   .card {
@@ -770,44 +970,93 @@
     transform: translateY(-10px);
   }
 }
-
 // footer
 footer {
   position: relative;
   padding: $xll-3 0 0 0;
   border-top: 1px solid rgba($white, 0.2);
   overflow: hidden;
+
   .logobg {
     line-height: 0;
     padding-top: $xl-1;
     margin-bottom: $xll;
+    
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      margin-bottom: $xl-6;
+    }
   }
+
   h3 {
     font-weight: 400;
     letter-spacing: 2px;
     font-size: $lg;
     margin-bottom: $xl-6;
+
+    @media screen and (max-width: 768px) {
+      font-size: calc($lg - 2px);
+      margin-bottom: $xl-4;
+      text-align: center;
+    }
   }
+
   span,
   p {
     color: rgba($white, 0.5);
-  }
-  ul li a {
-    color: rgba($white, 0.5);
-    transition: 0.5s ease-in-out;
-    margin-bottom: $xl-2;
-    display: block;
-    &:hover {
-      color: $green;
+    
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      font-size: 14px;
     }
   }
+
+  ul {
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      margin-bottom: $xl-4;
+    }
+
+    li a {
+      color: rgba($white, 0.5);
+      transition: 0.5s ease-in-out;
+      margin-bottom: $xl-2;
+      display: block;
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: $xl-1;
+        font-size: 14px;
+      }
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+
   .connect {
     @include flex(center, space-between, none);
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 0 20px;
+    }
+
     span {
       font-size: $sm;
       letter-spacing: 2px;
+
+      @media screen and (max-width: 768px) {
+        font-size: calc($sm - 1px);
+      }
     }
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -820,6 +1069,38 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     z-index: -1;
+
+    @media screen and (max-width: 1024px) {
+      height: 50vh;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 40vh;
+    }
+
+    @media screen and (max-width: 480px) {
+      height: 30vh;
+    }
+  }
+
+  // Add padding for smaller screens
+  @media screen and (max-width: 1024px) {
+    padding: calc($xll-2) 0 0 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: $xll 0 0 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: calc($xll - 20px) 0 0 0;
+  }
+}
+
+// Add container padding for smaller screens
+.container {
+  @media screen and (max-width: 768px) {
+    padding: 0 20px;
   }
 }
 .contact {
