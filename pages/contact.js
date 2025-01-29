@@ -121,8 +121,8 @@ const Contact = () => {
                 <FiHeadphones size={30} className='icons' />
                 <div className="info">
                   <h3>Talk to Us</h3>
-                  <p>1-001-234-5678</p>
-                  <span>Mon - Fri: 9:00 - 19:00</span>
+                  <p>+977 9802352254</p>
+                  <span>Sun - Fri: 9:00 - 19:00</span>
                 </div>
               </motion.div>
 
@@ -134,8 +134,8 @@ const Contact = () => {
                 <IoLocationOutline size={30} className='icons' />
                 <div className="info">
                   <h3>Visit Us</h3>
-                  <p>New York Office</p>
-                  <span>990 Madison Ave, NY 10022</span>
+                  <p>Office</p>
+                  <span>Battis Putali, Kathmandu</span>
                 </div>
               </motion.div>
 
@@ -147,7 +147,7 @@ const Contact = () => {
                 <FiHelpCircle size={30} className='icons' />
                 <div className="info">
                   <h3>Email Us</h3>
-                  <p>info@dream-theme.com</p>
+                  <p>info@blustudiosnepal.com</p>
                   <span>We'll respond within 24 hours</span>
                 </div>
               </motion.div>
@@ -160,8 +160,8 @@ const Contact = () => {
                 <BiUserCircle size={30} className='icons' />
                 <div className="info">
                   <h3>Join Our Team</h3>
-                  <p>hr@dream-theme.com</p>
-                  <span>Careers at Seven Creative</span>
+                  <p>hr@blustudiosnepal.com</p>
+                  <span>Careers at Creative</span>
                 </div>
               </motion.div>
             </div>
@@ -234,7 +234,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="John Doe"
+                      placeholder="Reyaham Shrestha"
                     />
                   </motion.div>
                   <motion.div 
@@ -248,7 +248,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="john@example.com"
+                      placeholder="reyaham@example.com"
                     />
                   </motion.div>
                 </div>
