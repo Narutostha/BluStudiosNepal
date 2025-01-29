@@ -5,7 +5,7 @@ const ServicesPage = () => {
   return (
     <>
       <Head>
-        <title>Services - 7Creative</title>
+        <title>Services - BluStudios Nepal</title>
       </Head>
       <Services />
     </>
