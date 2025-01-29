@@ -13,11 +13,11 @@ const Footer = () => {
               <TitleLogo title='StudiosNepal' caption='Blu' className='logobg' />
               <br />
               <span>
-                Questions? Reach us <br /> Monday – Friday from 9 am to 6 pm
+                Questions? Reach us <br /> Sunday – Friday from 9 am to 6 pm
               </span>
               <br />
               <br />
-              <h3>+1 001 234 5678</h3>
+              <h3>+977 9802352254</h3>
               <br />
               <button className='button-primary'>Request for quote</button>
             </div>
@@ -60,35 +60,16 @@ const Footer = () => {
             <ul>
               <h3>CONNECT</h3>
               <div className='connect'>
-                <li>
-                  <Link href='/'>
-                    <BsFacebook size={25} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/'>
-                    <AiFillBehanceCircle size={25} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/'>
-                    <AiFillInstagram size={25} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/'>
-                    <AiFillLinkedin size={25} />
-                  </Link>
-                </li>
+                
               </div>
             </ul>
           </div>
           <div className='legal connect py'>
             <div className='text'>
-              <span>© 2025 Reyaham Shrestha. ALL RIGHTS RESERVED.</span>
+              <span>© 2025 BluStudios Nepal. ALL RIGHTS RESERVED.</span>
             </div>
             <div className='connect'>
-              <span>NYXIS</span>
+              <span>BluStudios</span>
               <span> &nbsp; | &nbsp; </span>
               <span>TERMS & CONDITIONS</span>
             </div>

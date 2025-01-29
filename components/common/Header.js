@@ -28,11 +28,9 @@ const Header = () => {
               Home
             </Link>
             <Link href='/agency' className={activeLink == "/agency" ? "activeLink" : "none"}>
-              Agency
+              Know Us
             </Link>
-            <Link href='/team' className={activeLink == "/team" ? "activeLink" : "none"}>
-              Team
-            </Link>
+            
             <Link href='/services' className={activeLink == "/services" ? "activeLink" : "none"}>
               Services
             </Link>
