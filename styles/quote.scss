@@ -1,0 +1,273 @@
+.quote-request-page {
+  padding: 5rem 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba($dark, 0.95),
+    rgba($dark, 0.98)
+  );
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba($green, 0.1) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .heading-title {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .title-bg {
+      margin: 1rem 0;
+      background: linear-gradient(to right, $white, $green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: rgba($white, 0.7);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .quote-request-form {
+    background: linear-gradient(145deg, rgba(23, 30, 32, 0.95), rgba(23, 30, 32, 0.8));
+    padding: 3rem;
+    border-radius: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($white, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    .error-message {
+      background: rgba(#ff4444, 0.1);
+      color: #ff4444;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(#ff4444, 0.2);
+      animation: shake 0.5s ease-in-out;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .form-group {
+      label {
+        display: block;
+        margin-bottom: 0.75rem;
+        color: rgba($white, 0.9);
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        border: 1px solid rgba($white, 0.1);
+        border-radius: 12px;
+        background: rgba($white, 0.05);
+        color: $white;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+
+        &:focus {
+          border-color: $green;
+          outline: none;
+          background: rgba($green, 0.05);
+          box-shadow: 0 0 0 4px rgba($green, 0.1);
+
+          & + label {
+            color: $green;
+          }
+        }
+
+        &::placeholder {
+          color: rgba($white, 0.4);
+        }
+      }
+
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300dc93' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1.25rem center;
+        padding-right: 3rem;
+
+        option {
+          background: $dark;
+          color: $white;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+
+    .form-footer {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+
+      button {
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+
+      .button-secondary {
+        background: rgba($white, 0.1);
+        color: $white;
+        border: 1px solid rgba($white, 0.1);
+
+        &:hover {
+          background: rgba($white, 0.15);
+          transform: translateY(-2px);
+        }
+      }
+
+      .button-primary {
+        background: $green;
+        color: $dark;
+        border: none;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba($white, 0.2);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($green, 0.3);
+
+          &::before {
+            width: 300px;
+            height: 300px;
+          }
+        }
+      }
+    }
+  }
+
+  .success-message {
+    text-align: center;
+    padding: 4rem;
+    background: linear-gradient(145deg, rgba(23, 30, 32, 0.95), rgba(23, 30, 32, 0.8));
+    border-radius: 24px;
+    max-width: 600px;
+    margin: 4rem auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($green, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    h3 {
+      color: $green;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '✓';
+        position: absolute;
+        top: -10px;
+        right: -30px;
+        font-size: 1.5rem;
+        background: $green;
+        color: $dark;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: bounce 0.5s ease-out;
+      }
+    }
+
+    p {
+      color: rgba($white, 0.8);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .button-primary {
+      transform: scale(1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes bounce {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

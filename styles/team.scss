@@ -1,0 +1,337 @@
+.team-section {
+  padding: 6rem 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($dark, 0.95),
+    rgba($dark, 0.98)
+  );
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba($green, 0.1) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .heading-title {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .title-bg {
+      margin: 1rem 0;
+      font-size: 3.5rem;
+      background: linear-gradient(to right, $white, $green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, $green, transparent);
+      }
+    }
+
+    .subtitle {
+      color: rgba($white, 0.7);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 2rem auto 0;
+      line-height: 1.6;
+    }
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+  }
+
+  .team-card {
+    background: rgba($white, 0.02);
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba($white, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        145deg,
+        rgba($green, 0.1),
+        transparent
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover, &.active {
+      transform: translateY(-10px);
+      border-color: rgba($green, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .member-image::after {
+        opacity: 0.7;
+      }
+    }
+
+    .card-content {
+      .member-image {
+        position: relative;
+        height: 360px;
+        overflow: hidden;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba($dark, 0.9)
+          );
+          opacity: 0.5;
+          transition: opacity 0.4s ease;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .image-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 2rem;
+          z-index: 1;
+          
+          span {
+            color: $green;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: rgba($dark, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+          }
+        }
+      }
+
+      .member-info {
+        padding: 2rem;
+        position: relative;
+
+        h3 {
+          font-size: 1.8rem;
+          margin-bottom: 0.5rem;
+          color: $white;
+          transition: color 0.3s ease;
+        }
+
+        .post {
+          display: inline-block;
+          color: $green;
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          letter-spacing: 1px;
+          padding: 0.4rem 1rem;
+          background: rgba($green, 0.1);
+          border-radius: 20px;
+          transition: all 0.3s ease;
+        }
+
+        .specialization {
+          color: rgba($white, 0.8);
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          position: relative;
+          padding-left: 1.5rem;
+
+          &::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: $green;
+          }
+        }
+
+        .member-details {
+          max-height: 0;
+          overflow: hidden;
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          opacity: 0;
+
+          &.show {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba($white, 0.1);
+          }
+
+          h4 {
+            color: $green;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+            &:first-child {
+              margin-top: 0;
+            }
+
+            &::before {
+              content: '';
+              display: block;
+              width: 20px;
+              height: 2px;
+              background: $green;
+            }
+          }
+
+          .expertise ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            li {
+              background: rgba($green, 0.08);
+              color: $green;
+              padding: 0.6rem 1.2rem;
+              border-radius: 50px;
+              font-size: 0.95rem;
+              border: 1px solid rgba($green, 0.2);
+              transition: all 0.3s ease;
+
+              &:hover {
+                background: rgba($green, 0.15);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba($green, 0.15);
+              }
+            }
+          }
+
+          .education {
+            background: rgba($white, 0.03);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba($white, 0.05);
+
+            p {
+              color: rgba($white, 0.9);
+              font-size: 1rem;
+              line-height: 1.6;
+            }
+          }
+
+          .achievements ul li {
+            color: rgba($white, 0.9);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.5;
+
+            &::before {
+              content: '✓';
+              position: absolute;
+              left: 0;
+              color: $green;
+              font-weight: bold;
+              background: rgba($green, 0.1);
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 0.8rem;
+            }
+
+            &:hover::before {
+              background: rgba($green, 0.2);
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .member-image img {
+        transform: scale(1.08);
+      }
+
+      .post {
+        background: rgba($green, 0.2);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .team-section {
+    .heading-title .title-bg {
+      font-size: 2.5rem;
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      .card-content {
+        .member-image {
+          height: 300px;
+        }
+
+        .member-info {
+          padding: 1.5rem;
+
+          h3 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
