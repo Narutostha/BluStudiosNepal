@@ -92,6 +92,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .hero{
+    height: 210vh !important;
+  }
   .hero-sec {
     .hero-content {
       grid-template-columns: repeat(2, 1fr);
