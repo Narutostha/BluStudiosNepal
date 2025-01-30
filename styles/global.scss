@@ -8,7 +8,7 @@
   text-align: center;
   padding: $xl-6 0;
   padding-top: $xll-3;
-  height: 90vh !important;
+  height: 160vh !important;
   overflow: hidden !important;
   position: relative;
   
@@ -107,9 +107,42 @@
   }
 }
 // expertise
+
+ // expertise
 .expertise {
+  // Added top padding
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba($dark, 0.5) 10%,
+    $dark 30%
+  );
+
   .card-img {
     height: 300px;
+  }
+
+  .heading-title {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+      color: $white;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, $white, $green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: rgba($white, 0.7);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
   }
 
   .expertise-grid {
