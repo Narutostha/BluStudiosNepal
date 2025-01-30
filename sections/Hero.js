@@ -83,7 +83,7 @@ const Hero = () => {
             className="hero-header"
             variants={itemVariants}
           >
-            <TitleLogo title='creative' caption='7' className='logobg' />
+            <TitleLogo title='Studios Nepal' caption='Blu ' className='logobg' />
             
             <motion.h1 
               className='hero-title'
