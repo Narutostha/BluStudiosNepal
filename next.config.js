@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: false, // Disable SWC minification
+  swcMinify: false,
   images: {
     unoptimized: true,
     domains: ['lvfdbhdvsngxuptrybvn.supabase.co']
   },
-  output: 'export',
+  // Remove the output: 'export' line
   trailingSlash: true,
-  // Disable SWC compilation and use Babel instead
   experimental: {
     forceSwcTransforms: false
   }

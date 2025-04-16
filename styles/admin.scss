@@ -1,0 +1,267 @@
+.admin-dashboard {
+    min-height: 100vh;
+    background: $dark;
+    color: $white;
+    padding: 2rem;
+  
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+  
+    .auth-form {
+      background: #171e20;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid rgba($white, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  
+      h1 {
+        margin-bottom: 1rem;
+        color: $green;
+        font-size: 2rem;
+      }
+  
+      p {
+        margin-bottom: 2rem;
+        color: rgba($white, 0.7);
+      }
+  
+      .auth-error {
+        background: rgba(#ff4444, 0.1);
+        color: #ff4444;
+        padding: 0.75rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(#ff4444, 0.2);
+        animation: shake 0.5s ease-in-out;
+      }
+  
+      .form-group {
+        margin-bottom: 1.5rem;
+  
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: rgba($white, 0.9);
+        }
+  
+        input {
+          width: 100%;
+          padding: 0.75rem;
+          background: rgba($white, 0.05);
+          border: 1px solid rgba($white, 0.1);
+          border-radius: 5px;
+          color: $white;
+          transition: all 0.3s ease;
+  
+          &:focus {
+            border-color: $green;
+            outline: none;
+            background: rgba($green, 0.05);
+          }
+        }
+      }
+  
+      .auth-button {
+        width: 100%;
+        padding: 0.75rem;
+        background: $green;
+        color: $dark;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background: darken($green, 5%);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($green, 0.3);
+        }
+      }
+    }
+  
+    .dashboard-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  
+    .dashboard-header {
+      margin-bottom: 2rem;
+      text-align: center;
+  
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(to right, $white, $green);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      p {
+        color: rgba($white, 0.7);
+      }
+    }
+  
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+  
+      .tab-button {
+        padding: 0.75rem 1.5rem;
+        background: #171e20;
+        border: 1px solid rgba($white, 0.1);
+        border-radius: 5px;
+        color: $white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+  
+        &:hover {
+          background: rgba($green, 0.1);
+          border-color: rgba($green, 0.3);
+        }
+  
+        &.active {
+          background: rgba($green, 0.1);
+          border-color: $green;
+          color: $green;
+        }
+  
+        .active-indicator {
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: $green;
+        }
+      }
+    }
+  
+    .data-container {
+      background: #171e20;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid rgba($white, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+      h2 {
+        margin-bottom: 1.5rem;
+        color: $green;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+  
+        &::before {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 2px;
+          background: $green;
+        }
+      }
+  
+      .loading, .error-message, .no-data {
+        padding: 2rem;
+        text-align: center;
+        color: rgba($white, 0.7);
+      }
+  
+      .error-message {
+        color: #ff4444;
+      }
+  
+      .table-responsive {
+        overflow-x: auto;
+        max-height: 600px;
+        overflow-y: auto;
+  
+        &::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+  
+        &::-webkit-scrollbar-track {
+          background: rgba($white, 0.05);
+          border-radius: 4px;
+        }
+  
+        &::-webkit-scrollbar-thumb {
+          background: rgba($green, 0.5);
+          border-radius: 4px;
+        }
+      }
+  
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+  
+        th {
+          background: rgba($green, 0.1);
+          color: $green;
+          padding: 1rem;
+          text-transform: capitalize;
+          font-weight: 500;
+          position: sticky;
+          top: 0;
+          z-index: 10;
+        }
+  
+        td {
+          padding: 1rem;
+          border-top: 1px solid rgba($white, 0.05);
+          color: rgba($white, 0.9);
+          max-width: 300px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+  
+          &:hover {
+            white-space: normal;
+            word-break: break-word;
+          }
+        }
+  
+        tr:hover td {
+          background: rgba($white, 0.03);
+        }
+      }
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      padding: 1rem;
+      
+      .tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .data-container {
+        padding: 1rem;
+      }
+      
+      .data-table th, 
+      .data-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
